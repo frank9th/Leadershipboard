@@ -19,15 +19,16 @@ class LeaderView(viewsets.ModelViewSet):
     queryset = Leader.objects.all()
 
 def home(request):
-    context = {"leaders":Leader.objects.all()}
-    return render(request, "home.html", context)
+    #context = {"leaders":Leader.objects.all()}
+    member = Members.objects.all()
+    return render(request, "home.html", {'member': member})
 
 def about(request):
     return render(request, "about.html", {"title": "About"})
 
 def contact(request):
 	 member = Members.objects.all()
-	 return render(request, 'contact.html', {})
+	 return render(request, 'contact.html', {'member': member,})
 
 
 
